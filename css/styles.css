@@ -1,0 +1,1252 @@
+/* Common Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em 0;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+header .logo {
+  max-width: 100%;
+  height: auto;
+}
+
+header nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+header nav ul li {
+  display: inline;
+}
+
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  position: relative; /* Necessary for the pseudo-element to be positioned correctly */
+}
+
+header nav ul li a::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #fff; /* Background color for the hover effect */
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+header nav ul li a:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+
+.content-wrapper {
+  display: flex;
+  padding: 20px;
+  flex: 1;
+  justify-content: space-between;
+  position: relative;
+}
+
+main {
+  flex: 3;
+  padding: 20px;
+  display: flex;
+  flex-direction: colum;
+  align-items: top;
+}
+.index-page main {
+  flex: 3;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.search-page main {
+  flex: 3;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  width: 100%;
+  text-align: center;
+}
+
+#hero {
+  text-align: center;
+}
+
+.post {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  overflow: hidden;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.post:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 8px #0003;
+}
+
+.post img, .post video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+  align-self: flex-end;
+}
+
+img {
+  max-height: 100%;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em 0;
+  margin-top: auto;
+}
+
+.social-media {
+  margin-top: 10px;
+}
+
+.social-media a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.sidebar {
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  width: 40%;
+  max-width: 350px;
+  padding-bottom: 3rem;
+}
+
+.articles-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.articles-list .post {
+  flex: 1 1 calc(50% - 20px);
+  box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+  .articles-list .post {
+      flex: 1 1 calc(100% - 20px);
+      max-width: calc(100% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .articles-list .post, .content-wrapper {
+      flex: 1 1 100%;
+      max-width: 100%;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  aside.sidebar {
+      width: 100%;
+      max-width: none;
+      margin: 0 0 20px;
+      order: 2;
+  }
+  
+  main {
+      width: 100%;
+      max-width: none;
+      order: 1;
+  }
+  
+  footer {
+      order: 3;
+  }
+  
+  header nav ul {
+      flex-direction: column;
+      gap: 10px;
+  }
+  
+  .button-link {
+      width: 100%;
+      box-sizing: border-box;
+  }
+  
+  section {
+      width: 100%;
+      max-width: none;
+      margin: 10px 0;
+  }
+}
+
+.button-link {
+  display: inline-block;
+  margin-top: 20px; /* Increase this value for more space */
+  padding: 10px 20px;
+  background-color: royalblue;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button-link:hover {
+  background-color: #555;
+}
+
+.content-wrapper .content {
+  transition: max-height .2s ease-out;
+}
+
+.content-wrapper.expanded .content {
+  max-height: none;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000c;
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.expanded-article {
+  background: #fff;
+  width: 80%;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  position: relative;
+  padding: 20px;
+  box-shadow: 0 4px 8px #0003;
+  border-radius: 8px;
+}
+
+.expanded-article img, .expanded-article video {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+  margin: 0 auto;
+}
+
+.expanded-article h1, .expanded-article h2, .expanded-article h3 {
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  background: #555;
+}
+
+.index-page .post-list .post.expanded {
+  width: 90vw;
+  height: 90vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  overflow: auto;
+  box-shadow: 0 8px 16px #0003;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.index-page .post-list .close-button {
+  background-color: red;
+}
+
+.index-page .post-list .close-button:hover {
+  background-color: #8b0000;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+aside.sidebar {
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+.social-media a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #fff;
+  position: relative; /* Necessary for the pseudo-element to be positioned correctly */
+}
+
+.social-media a::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: white; /* Background color for the hover effect */
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+.social-media a:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar input[type="text"] {
+  width: 90%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin: auto;
+}
+
+#searchResults {
+  margin-top: 10px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #0006;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+  max-height: 80vh;
+  overflow: auto;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.close {
+  color: #aaa;
+  align-self: flex-end;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.set {
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.set img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.image-modal-content {
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  margin: auto;
+}
+
+.close-image-modal {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.close-image-modal:hover, .close-image-modal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 2.5s ease;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: scale-down;
+  cursor: pointer;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  position: absolute;
+  top: 5%;
+  transform: translateY(-50%);
+  background-color: #00000080;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: red; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+
+/* Additional Styles for Specific Sections */
+.flexbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.flexbox-container img, .flexbox-container video {
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.post-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+#news, #reviews {
+  text-align: center;
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.bmc-button-container, .bmc-button-container-sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Increase the space below the container */
+}
+
+.sidebar .search-box, .search-box {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.sidebar .search-description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.sidebar #searchForm input[type="text"] {
+  width: calc(100% - 82px);
+  padding: .5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.sidebar #searchForm button {
+  width: 70px;
+  padding: .5rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sidebar #searchForm button:hover {
+  background-color: #0056b3;
+}
+
+#about {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.about-content {
+  text-align: center;
+}
+
+.about-image {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.instagram-post {
+  margin-top: 2rem;
+}
+
+.see-more-news, .see-more-reviews {
+  display: inline-block;
+  margin-top: 20px; /* Increase this value for more space */
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.see-more-news:hover, .see-more-reviews:hover {
+  background-color: #555;
+}
+
+#news .post-list, #reviews .post-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; /* Ensure rows are created */
+  gap: 20px;
+  width: 100%; /* Set to full width to make use of available space */
+}
+
+#news .post, #reviews .post {
+  flex: 1 1 calc(50% - 20px); /* Ensure each item takes up 50% of the width, accounting for the gap */
+  box-sizing: border-box; /* Include padding and border in the width */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Style the video to fit within its container */
+#news .post video, #reviews .post video {
+  max-width: 100%;
+  max-height: 90vh%;
+  width: auto%;
+  height: auto;
+}
+
+/* Ensure the content fills available space */
+#news .post .post-content, #reviews .post .post-content {
+  flex: 1 1 auto;
+  margin-bottom: 20px; /* Ensure there is space between content and buttons */
+}
+
+/* Style the button to be at the bottom */
+#news .post .button-link, #reviews .post .button-link {
+  margin-top: auto;
+}
+
+/* Page-Specific Styles */
+
+/* News Page Styles */
+.news-page .content-wrapper {
+  display: flex;
+  flex-wrap: nowrap; /* Ensure the elements do not wrap */
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Main content styles */
+.news-page .main-content {
+  flex: 3;
+}
+
+/* Sidebar styles */
+.news-page .sidebar, .reviews-page .sidebar {
+  flex: 1;
+  max-width: 350px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .news-page .content-wrapper {
+    flex-direction: column;
+  }
+  .news-page .sidebar {
+    margin-top: 20px;
+  }
+}
+
+.news-page .articles-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.news-page .articles-list .post {
+  flex: 1 1 calc(50% - 20px); /* 2 items per row with a gap of 20px */
+  box-sizing: border-box;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Floating box effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease, left 0.3s ease, top 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.news-page .articles-list .post.expanded {
+  width: 90vw;
+  height: 90vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  overflow: auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.news-page .articles-list .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.news-page .articles-list .close-button:hover {
+  background-color: darkred;
+}
+
+/* Reviews Page Styles */
+.reviews-page .articles-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.reviews-page .articles-list .post {
+  flex: 1 1 calc(50% - 20px); /* 2 items per row with a gap of 20px */
+  box-sizing: border-box;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Floating box effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease, left 0.3s ease, top 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.reviews-page .articles-list .post.expanded {
+  width: 90vw;
+  height: 90vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  overflow: auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.reviews-page .articles-list .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.reviews-page .articles-list .close-button:hover {
+  background-color: darkred;
+}
+
+/* Tags Page Styles */
+.tags-page .articles-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.tags-page .articles-list .post {
+  flex: 1 1 calc(50% - 20px); /* 2 items per row with a gap of 20px */
+  box-sizing: border-box;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Floating box effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease, left 0.3s ease, top 0.3s ease;
+  position: relative;
+  z-index: 1;
+  height: 100%
+}
+
+.tags-page .articles-list .post.expanded {
+  width: 90vw;
+  height: 90vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  overflow: auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.tags-page .articles-list .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.tags-page .articles-list .close-button:hover {
+  background-color: darkred;
+}
+
+/* Search Page Styles */
+.search-page .content-wrapper {
+  max-width: 100%; /* Use full width available */
+  margin: 0; /* Remove margins */
+  padding: 10px; /* Reduce padding */
+  box-sizing: border-box; /* Ensure padding and border are included in the width and height */
+}
+.search-page #search-results h2 {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+.search-page .post-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Reduce gap between grid items */
+  justify-content: space-between; /* Distribute items evenly */
+  width: 100%; /* Ensure the post-list takes the full width of its container */
+}
+
+.search-page .post-list .post {
+  flex: 1 1 calc(33.333% - 20px); /* 3 items per row with a small gap */
+  box-sizing: border-box;
+  max-width: calc(100% - 20px); /* Ensure max-width to fit 3 items per row */
+  margin: 10px 0; /* Reduce margin between rows */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Floating box effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease, left 0.3s ease, top 0.3s ease;
+  position: relative;
+  z-index: 1;
+  padding: 10px; /* Add some padding inside the posts */
+  background-color: #fff; /* Ensure background color */
+  height: 100%
+}
+
+.search-page .post-list .post .content-wrapper .content {
+  max-height: 400px; /* Increase the max height to show more content */
+  overflow: hidden;
+}
+
+.search-page .post-list .post.expanded {
+  width: 90vw;
+  height: 90vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  overflow: auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.search-page .post-list .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.search-page .post-list .close-button:hover {
+  background-color: darkred;
+}
+
+/* Index Page Layout */
+.index-page .content-wrapper {
+  display: flex;
+  flex-wrap: nowrap; /* Ensure the elements do not wrap */
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.index-page .main-content {
+  flex: 3;
+  /* Additional styling specific to the main content */
+}
+
+.index-page .sidebar {
+  flex: 1;
+  max-width: 350px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.index-page .articles-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.index-page .articles-list .post {
+  flex: 1 1 calc(50% - 20px); /* 2 items per row with a gap of 20px */
+  box-sizing: border-box;
+  max-width: calc(50% - 20px);
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.index-page .articles-list .post.expanded {
+  width: 90vw;
+  height: 90vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  overflow: auto;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.index-page .articles-list .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.index-page .articles-list .close-button:hover {
+  background-color: darkred;
+}
+@media (max-width: 768px) {
+  /* Hide sidebar on all pages except index */
+  .news-page aside.sidebar,
+  .reviews-page aside.sidebar,
+  .tags-page aside.sidebar,
+  .search-page aside.sidebar {
+    display: none;
+  }
+
+  .index-page aside.sidebar {
+    display: block;
+  }
+
+  .articles-list .post, .content-wrapper {
+      flex: 1 1 100%;
+      max-width: 100%;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  main {
+      width: 100%;
+      max-width: none;
+      order: 1;
+  }
+  
+  footer {
+      order: 2;
+  }
+  
+  header nav ul {
+      flex-direction: column;
+      gap: 10px;
+  }
+  
+  .button-link {
+      width: 100%;
+      box-sizing: border-box;
+  }
+  
+  section {
+      width: 100%;
+      max-width: none;
+      margin: 10px 0;
+  }
+}
+@media (max-width: 600px) {
+  .carousel-item img {
+    width: 75%; /* Adjust the percentage to make the image smaller */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+ #Calculator {
+  max-width: 300px;
+  margin-top: 25px;;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+ #Calculator label, select, p {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+#Calculator label {
+  color: #007BFF;
+}
+#Calculator input, select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#Calculator button:hover {
+  background-color: #218838;
+}
+#result {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #30a91b;
+}
+.sidebar-share-buttons {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.sidebar-share-buttons h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%; /* Ensure the heading takes the full width */
+}
+
+.sidebar-share-buttons .button-container {
+  display: flex;
+   /* Space between buttons */
+  align-items: center; /* Center buttons vertically */
+  gap: 10px; /* Adds a gap between the buttons */
+  align-content: space-around;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+}
+
+.sidebar-share-buttons .twitter-share-button,
+.sidebar-share-buttons .fb-share-button {
+  flex: 1;
+  max-width: 33%; /* Ensure each button doesn't exceed one-third of the width */
+  text-align: center;
+}
+
+.sidebar-share-buttons .share-btn {
+  flex: 0.9; /* Make the Copy Link button slightly smaller */
+  max-width: 20%; /* Reduce the width of the Copy Link button */
+  padding: 8px 10px; /* Adjust padding to make the button smaller */
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+.responsive-iframe-container {
+  position: relative;
+  width: 100%;
+  max-width: 90%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.responsive-iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
