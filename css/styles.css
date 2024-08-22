@@ -82,7 +82,6 @@ header nav ul li a:hover::before {
 
 main {
   flex: 3;
-  padding: 20px;
   display: flex;
   flex-direction: colum;
   align-items: top;
@@ -793,15 +792,7 @@ html {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .news-page .content-wrapper {
-    flex-direction: column;
-  }
-  .news-page .sidebar {
-    margin-top: 20px;
-  }
-}
+
 
 .news-page .articles-list {
   display: flex;
@@ -1109,7 +1100,7 @@ html {
   .reviews-page aside.sidebar,
   .tags-page aside.sidebar,
   .search-page aside.sidebar {
-    display: none;
+    display: block;
   }
 
   .index-page aside.sidebar {
@@ -1127,6 +1118,7 @@ html {
       width: 100%;
       max-width: none;
       order: 1;
+      flex-direction: column;
   }
   
   footer {
@@ -1147,6 +1139,9 @@ html {
       width: 100%;
       max-width: none;
       margin: 10px 0;
+      padding-left: 0;
+      padding-right: 0;
+      
   }
 }
 @media (max-width: 600px) {
@@ -1249,4 +1244,20 @@ html {
   width: 100%;
   height: 100%;
   border: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .articles-list, #news .post-list, #reviews .post-list {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .articles-list .post, #news .post-list, #reviews .post-list {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 1 0 100% !important;
+    box-sizing: border-box !important;
+  }
 }
